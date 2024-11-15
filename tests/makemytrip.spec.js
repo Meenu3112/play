@@ -1,11 +1,6 @@
 const {test,expect}=require('@playwright/test')
-const { chromium } = require('@playwright/test');
-test("makemytrip",async()=>{
-    const browser = await chromium.launch();
-    const context= await browser.newContext()
-    const page= await context.newPage()
+test("makemytrip",async({page})=>{
     await page.goto("https://www.makemytrip.com/")
-    await page.maximizeWindow()
     await page.locator('//span[@class="commonModal__close"]').click()
     await page.locator("//label[@for='departure']").click()
     await page.waitForTimeout(2000)
