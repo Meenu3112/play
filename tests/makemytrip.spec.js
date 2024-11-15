@@ -1,12 +1,9 @@
 const {test,expect}=require('@playwright/test')
 const { chromium } = require('@playwright/test');
-
-
-
 test("makemytrip",async()=>{
     const browser = await chromium.launch({ headless: true });
-    const context= browser.newContext()
-    const page= context.newPage()
+    const context= await browser.newContext()
+    const page= await context.newPage()
     await page.goto("https://www.makemytrip.com/")
     await page.maximizeWindow()
     await page.locator('//span[@class="commonModal__close"]').click()
