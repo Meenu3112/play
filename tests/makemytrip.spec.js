@@ -1,4 +1,8 @@
 const {test,expect}=require('@playwright/test')
+const { chromium } = require('@playwright/test');
+
+const browser = await chromium.launch({ headless: true });
+
 test("makemytrip",async({page})=>{
     await page.goto("https://www.makemytrip.com/")
     await page.maximizeWindow()
