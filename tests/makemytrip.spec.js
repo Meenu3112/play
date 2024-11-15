@@ -1,9 +1,10 @@
 const {test,expect}=require('@playwright/test')
 const { chromium } = require('@playwright/test');
 
-const browser = await chromium.launch({ headless: true });
 
-test("makemytrip",async({browser})=>{
+
+test("makemytrip",async()=>{
+    const browser = await chromium.launch({ headless: true });
     const context= browser.newContext()
     const page= context.newPage()
     await page.goto("https://www.makemytrip.com/")
